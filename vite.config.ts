@@ -1,26 +1,14 @@
 import { defineConfig } from "vite";
 import { params } from "@ampt/sdk";
 import react from "@vitejs/plugin-react-swc";
-import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    VitePWA({
-      registerType: "autoUpdate",
-      workbox: {
-        navigateFallbackDenylist: [/^\/api\//],
-        mode: "production", // or 'development' to get logs
-      },
-      devOptions: {
-        enabled: false, // set to true to use/debug service worker locally
-      },
-    }),
-  ],
+  plugins: [react()],
   server: {
     open: true,
-    port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
+    port: process.env.PORT ? parseInt(process.env.PORT) : 3001,
     strictPort: true,
+    // This proxies all outgoing requests from the app to your live Ampt environment
     proxy: {
       "/api": {
         target: params("AMPT_URL"),
@@ -34,13 +22,6 @@ export default defineConfig({
     outDir: "static",
     reportCompressedSize: true,
     rollupOptions: {
-      // output: {
-      //   manualChunks: {
-      //     'react-icons': ['react-icons'],
-      //     'next-ui': ['@nextui-org/react']
-      //   }
-      // },
-      // lower this accomodate for Lambda's low parallel file ops
       maxParallelFileOps: 10,
     },
   },
