@@ -6,7 +6,7 @@
 
 ## Welcome to Ampt!
 
-To run this app locally, simply clone down this repository and run `npm install` followed by `ampt dev`. This will start the app on `localhost:3001`. You may need to login to the Ampt CLI if you haven't already (you can install this by running `npm install -g @ampt/cli`)
+To run this app locally, simply clone down this repository and run `ampt`. You may need to login to the Ampt CLI if you haven't already (you can install this by running `npm install -g @ampt/cli`). To start the local development server, run `ampt dev` or `dev` in the Ampt shell.
 
 All of the API routes are defined in `api/index.ts`, using Express.js. The frontend source code is in `src/`, and the React app is bundled with Vite.
 
