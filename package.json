@@ -9,16 +9,14 @@
     "ampt:tsc": "tsc",
     "ampt:build": "vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gitpod:ampt": "./node_modules/.bin/ampt"
   },
   "main": "api/index.ts",
   "ampt": {
-    "org": "",
-    "app": "react-vite"
+    "app": "",
+    "org": ""
   },
-  "files": [
-    "!src/**/*"
-  ],
   "dependencies": {
     "@ampt/data": "^1.0.0",
     "@ampt/sdk": "^1.0.0",
